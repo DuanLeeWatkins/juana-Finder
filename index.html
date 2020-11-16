@@ -5,10 +5,26 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Juana Finder</title>
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.js" crossorigin="anonymous"></script>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet"
+            type="text/css" />
+        <link href="style.css" rel="stylesheet" type="text/css" />
     </head>
 
     <body>
+        <div class="container">
+            <h1>Juana Finder</h1>
 
+            <form id="search-form">
+                <label for="search-strain-race">Search Strain Race</label>
+                <input type="text" name="strain-race" id="strain-race" required>
+
+                <input type="submit" name="search-button" id="search-button" value="Get Strains">
+            </form>
+        </div>
+
+
+        <script src="script.js"></script>
     </body>
 
 </html>
