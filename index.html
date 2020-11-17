@@ -14,7 +14,7 @@
     </head>
 
     <body>
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
                     <h1>Juana Finder</h1>
@@ -22,71 +22,36 @@
                 <div class="col">
                     <form id="search-form">
                         <label for="choose-strain-type">Choose a Strain type:</label>
-                        <select id="strain-type" name="strain-type">
+                        <select id="strain-race" name="strain-race">
                             <option value="Sativa">Sativa</option>
                             <option value="Indica">Indica</option>
                             <option value="Hybrid">Hybrid</option>
                         </select>
                         <input type="submit" name="search-button" id="search-button" value="Get Strains">
                     </form>
+
                 </div>
                 <div class="col"></div>
             </div>
         </div>
 
-        <section id="results" class="hidden">
+        <p id="error-message" class="error-message"></p>
+
+        <hr>
+        <section id="results" class="">
 
 
-            <div class="container">
+            <div class="container-fluid">
                 <div class="row">
                     <div class="col">
                         <h2>Strain Results</h2>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-6 col-with-margins">
-                        <div class="card">
-                            <div class="card-body">
-                                <h3 class="card-title">Strain #1</h3>
-                                <p class="card-text">
-                                    Some quick example text to build on the card title and make up the
-                                    bulk of the card's
-                                    content.</p>
-                                <a href="#" class="btn btn-primary">Read more</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6 col-with-margins">
-                        <div class="card">
-                            <div class="card-body">
-                                <h3 class="card-title">Strain #1</h3>
-                                <p class="card-text">
-                                    Some quick example text to build on the card title and make up the
-                                    bulk of the card's
-                                    content.</p>
-                                <a href="#" class="btn btn-primary">Read more</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6 col-with-margins">
-                        <div class="card">
-                            <div class="card-body">
-                                <h3 class="card-title">Strain #1</h3>
-                                <p class="card-text">
-                                    Some quick example text to build on the card title and make up the
-                                    bulk of the card's
-                                    content.</p>
-                                <a href="#" class="btn btn-primary">Read more</a>
-                            </div>
-                        </div>
-                    </div>
+                <div class="row" id="strain-cards">
+
                 </div>
             </div>
         </section>
-
-
-
-        <hr>
 
         <div class="container">
 
