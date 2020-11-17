@@ -4,6 +4,7 @@ const apiKey = "RcvgwyJ";
 function getStrains(query) {
   const url = searchURL + apiKey + "/strains/search/race/" + query;
   let strain = "";
+  let strainDesc = "";
 
   console.log(url);
 
@@ -25,18 +26,20 @@ function getStrains(query) {
                 </div>
             </div>
           `;
+
+        const urlTwo = searchURL + apiKey + "/strains/data/desc/" + strain.id;
+
+        console.log(urlTwo);
+
+        fetch(urlTwo)
+          .then((res) => res.json())
+          .then((json) => {
+            // - [ ] Get the description from the response
+            // - [ ] Render the description in the card element
+
+            $(`.card[data-strain-id=${strain.id}] .card-text(html)`);
+          });
       }
-
-      const url = searchURL + apiKey + "/strains/data/desc/" + strain.id;
-
-      fetch(url)
-        .then((res) => res.json())
-        .then((json) => {
-          // - [ ] Get the description from the response
-          // - [ ] Render the description in the card element
-
-          $(`.card[data-strain-id=${strain.id}] .card-text(html)`);
-        });
 
       $("#strain-cards").html(html);
     });
