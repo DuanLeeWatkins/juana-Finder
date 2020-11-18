@@ -27,6 +27,8 @@ function getStrains(query) {
       }
       $("#strain-cards").html(html);
     });
+
+  $("#results").removeClass("hidden");
 }
 function watchForm() {
   $("form").submit((event) => {
