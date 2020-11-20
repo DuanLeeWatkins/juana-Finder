@@ -2,34 +2,76 @@ const searchURL = "https://strainapi.evanbusse.com/";
 const apiKey = "RcvgwyJ";
 
 function getStrains(query) {
-  const url = searchURL + apiKey + "/strains/search/race/" + query;
-  let strain = "";
-  fetch(url)
+  fetch(searchURL + apiKey + "/strains/search/race/" + query)
     .then((res) => res.json())
-    .then(async (strains) => {
+    .then((strains) => {
       let html = "";
-      for (let i = 0; i < 20; i++) {
-        const urlTwo =
-          searchURL + apiKey + "/strains/data/desc/" + strains[i].id;
-        let desc = await fetch(urlTwo);
-        desc.json().then((data) => {
-          html += `
+
+      strains.forEach((strain) => {
+        html += `
             <div class="col-6 col-with-margins">
-                <div class="card" data-strain-id="1">
+                <div class="card" data-strain-id="${strain.id}">
                     <div class="card-body">
-                        <h3 class="card-title h4">${strains[i].name}</h3>
-                        <p class="card-text" style="display:block">${data.desc}</p>
+                        <h3 class="card-title h4">
+                            ${strain.name}
+                        </h3>
+                        <span class="strain-flavors" style="none:">
+                            <span class="badge badge-pill badge-success"></span>
+
+                        </span>
+                        <p class="strain-desc" style="display:none"></p>
                     </div>
                 </div>
             </div>
           `;
-        });
-      }
+      });
+
       $("#strain-cards").html(html);
+
+      strains.forEach((strain) => {
+        fetch(searchURL + apiKey + "/strains/data/desc/" + strain.id)
+          .then((response) => response.json())
+          .then((json) => {
+            $(`.card[data-strain-id=${strain.id}] .strain-desc`)
+              .html(json.desc)
+              .show();
+          });
+      });
+
+      strains.forEach((strain) => {
+        fetch(searchURL + apiKey + "/strains/data/flavors/" + strain.id)
+          .then((response) => response.json())
+          .then((json) => {
+            $(`.card.strain-flavors .badge badge-pill badge-success`)
+              .html(json.flavors)
+              .show();
+          });
+      });
+
+      //  <span class="badge badge-pill badge-success">one</span>
+
+      // const json = await response.json();
+      //   fetch(searchURL + apiKey + "/strains/data/flavors/" + strains[i].id)
+      //     .then((res) => res.json())
+      //     .then(async ())
+
+      //     response.json().then((data) => {
+      //       html += `
+      //         <div class="col-6 col-with-margins">
+      //             <div class="card" data-strain-id="1">
+      //                 <div class="card-body">
+      //                     <h3 class="card-title h4">${strains[i].name}</h3>
+      //                     <p class="card-text" style="display:block">${data.desc}</p>
+      //                 </div>
+      //             </div>
+      //         </div>
+      //       `;
+      //     });
     });
 
   $("#results").removeClass("hidden");
 }
+
 function watchForm() {
   $("form").submit((event) => {
     event.preventDefault();
