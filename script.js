@@ -26,6 +26,7 @@ function getStrains(query) {
           `;
       });
 
+
       $("#strain-cards").html(html);
 
       strains.forEach((strain) => {
@@ -38,7 +39,7 @@ function getStrains(query) {
           });
       });
 
-      strains.forEach((strain) => {
+      /* strains.forEach((strain) => {
         fetch(searchURL + apiKey + "/strains/data/flavors/" + strain.id)
           .then((response) => response.json())
           .then((json) => {
@@ -46,27 +47,7 @@ function getStrains(query) {
               .html(json.flavors)
               .show();
           });
-      });
-
-      //  <span class="badge badge-pill badge-success">one</span>
-
-      // const json = await response.json();
-      //   fetch(searchURL + apiKey + "/strains/data/flavors/" + strains[i].id)
-      //     .then((res) => res.json())
-      //     .then(async ())
-
-      //     response.json().then((data) => {
-      //       html += `
-      //         <div class="col-6 col-with-margins">
-      //             <div class="card" data-strain-id="1">
-      //                 <div class="card-body">
-      //                     <h3 class="card-title h4">${strains[i].name}</h3>
-      //                     <p class="card-text" style="display:block">${data.desc}</p>
-      //                 </div>
-      //             </div>
-      //         </div>
-      //       `;
-      //     });
+      }); */
     });
 
   $("#results").removeClass("hidden");
