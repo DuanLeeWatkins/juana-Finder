@@ -20,44 +20,45 @@
     </head>
 
     <body>
-        <div class="container-fluid">
-            <div class="header-row">
-                <div class="col-12">
-                    <h1>Juana Finder</h1>
-                </div>
-                <div class="col-12">
-                    <form id="search-form">
-                        <label for="choose-strain-race" id="choose-strain-race">Choose a Strain type:</label>
-
-                        <select id="strain-race" name="strain-race">
-                            <option value="Sativa">Sativa</option>
-                            <option value="Indica">Indica</option>
-                            <option value="Hybrid">Hybrid</option>
-                        </select>
-                        <input type="submit" name="search-button" id="search-button" value="Get Strains">
-                    </form>
-
-                </div>
-            </div>
-        </div>
-
-        <p id="error-message" class="error-message"></p>
-
-        <hr>
-        <section id="results" class="hidden">
-
-
+        <main>
             <div class="container-fluid">
-                <div class="row">
+                <div class="header-row">
                     <div class="col-12">
-                        <h2>Strain Results</h2>
+                        <h1>Juana Finder</h1>
+                    </div>
+                    <div class="col-12">
+                        <form id="search-form">
+                            <label for="strain-race" id="choose-strain-race">Choose a Strain type:</label>
+                            <select id="strain-race" name="strain-race">
+                                <option value="Sativa">Sativa</option>
+                                <option value="Indica">Indica</option>
+                                <option value="Hybrid">Hybrid</option>
+                            </select>
+                            <input type="submit" name="search-button" id="search-button" value="Get Strains">
+                        </form>
+
                     </div>
                 </div>
-                <div class="row" id="strain-cards">
-
-                </div>
             </div>
-        </section>
+
+            <p id="error-message" class="error-message"></p>
+
+            <hr>
+            <section id="results" class="hidden">
+
+
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12">
+                            <h2>Strain Results</h2>
+                        </div>
+                    </div>
+                    <div class="row" id="strain-cards">
+
+                    </div>
+                </div>
+            </section>
+        </main>
 
 
 
