@@ -24,16 +24,6 @@ h1 {
   font-size: 17px;
   padding-top: 50px;
   color: black;
-
-  @media media-breakpoint-up(sm) {
-    min-width: 576px;
-  }
-  @media media-breakpoint-up(md) {
-    min-width: 768px;
-  }
-  @media media-breakpoint-up(lg) {
-    min-width: 992px;
-  }
 }
 
 #choose-strain-race {
@@ -54,13 +44,4 @@ h2 {
 }
 
 #results {
-  @media media-breakpoint-up(sm) {
-    min-width: 576px;
-  }
-  @media media-breakpoint-up(md) {
-    min-width: 768px;
-  }
-  @media media-breakpoint-up(lg) {
-    min-width: 992px;
-  }
 }
