@@ -36,6 +36,9 @@ h1 {
   }
 }
 
+#choose-strain-race {
+  color: #f0f0f0;
+}
 #search-form,
 #results {
   font-family: "Slabo 13px", serif;
