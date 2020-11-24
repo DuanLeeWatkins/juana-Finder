@@ -39,15 +39,7 @@ function getStrains(query) {
           });
       });
 
-      /* strains.forEach((strain) => {
-        fetch(searchURL + apiKey + "/strains/data/flavors/" + strain.id)
-          .then((response) => response.json())
-          .then((json) => {
-            $(`.card.strain-flavors .badge badge-pill badge-success`)
-              .html(json.flavors)
-              .show();
-          });
-      }); */
+      
     });
 
   $("#results").removeClass("hidden");

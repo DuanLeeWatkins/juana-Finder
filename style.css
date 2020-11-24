@@ -6,3 +6,58 @@
 .hidden {
   display: none;
 }
+
+body {
+  background-color: white;
+}
+
+.card {
+  background-color: #7ae582;
+}
+
+h1 {
+  font-family: "Ultra", serif;
+  color: #00a5cf;
+}
+
+#search-form {
+  font-size: 17px;
+  padding-top: 50px;
+  color: black;
+
+  @media media-breakpoint-up(sm) {
+    min-width: 576px;
+  }
+  @media media-breakpoint-up(md) {
+    min-width: 768px;
+  }
+  @media media-breakpoint-up(lg) {
+    min-width: 992px;
+  }
+}
+
+#search-form,
+#results {
+  font-family: "Slabo 13px", serif;
+}
+
+h2 {
+  font-family: "Ultra", serif;
+  color: #00a5cf;
+}
+
+.header-row {
+  background-color: #004e64;
+}
+
+#results {
+  @media media-breakpoint-up(sm) {
+    min-width: 576px;
+  }
+  @media media-breakpoint-up(md) {
+    min-width: 768px;
+  }
+  @media media-breakpoint-up(lg) {
+    min-width: 992px;
+  }
+}
