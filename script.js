@@ -1,3 +1,5 @@
+"use strict";
+
 const searchURL = "https://strainapi.evanbusse.com/";
 const apiKey = "RcvgwyJ";
 
@@ -9,23 +11,24 @@ function getStrains(query) {
 
       strains.forEach((strain) => {
         html += `
-            <div class="col-6 col-with-margins">
+            <div class="col-lg-3 col-md-4 col-sm-6 col-with-margins">
                 <div class="card" data-strain-id="${strain.id}">
                     <div class="card-body">
-                        <h3 class="card-title h4">
+                        <h3 class="card-title h4"
+                          data-toggle="collapse"
+                          data-target="#desc-${strain.id}"
+                          aria-expanded="false"
+                          aria-controls="desc-${strain.id}">
                             ${strain.name}
                         </h3>
-                        <span class="strain-flavors" style="none:">
-                            <span class="badge badge-pill badge-success"></span>
-
-                        </span>
-                        <p class="strain-desc" style="display:none"></p>
+                        <div id="desc-${strain.id}" class="collapse">
+                          <p class="strain-desc"></p>
+                        </div>
                     </div>
                 </div>
             </div>
           `;
       });
-
 
       $("#strain-cards").html(html);
 
@@ -33,13 +36,15 @@ function getStrains(query) {
         fetch(searchURL + apiKey + "/strains/data/desc/" + strain.id)
           .then((response) => response.json())
           .then((json) => {
-            $(`.card[data-strain-id=${strain.id}] .strain-desc`)
-              .html(json.desc)
-              .show();
+            const $card = $(`.card[data-strain-id=${strain.id}]`);
+
+            if (!json.desc) {
+              return $card.parent().remove();
+            }
+
+            $(".strain-desc", $card).html(json.desc).show();
           });
       });
-
-      
     });
 
   $("#results").removeClass("hidden");
