@@ -18,6 +18,7 @@ body {
 h1 {
   font-family: "Ultra", serif;
   color: #00a5cf;
+  text-align: center;
 }
 
 #search-form {
@@ -26,6 +27,10 @@ h1 {
   color: black;
 }
 
+#search-form,
+#choose-strain-race {
+  text-align: center;
+}
 #choose-strain-race {
   color: #f0f0f0;
 }
