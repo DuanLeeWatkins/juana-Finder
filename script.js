@@ -1,7 +1,37 @@
 "use strict";
 
+const itemsPerPage = 60;
+
 const searchURL = "https://strainapi.evanbusse.com/";
 const apiKey = "RcvgwyJ";
+
+function renderPagination({ totalPages, currentPage }) {
+  let buttonsHTML = "";
+
+  for (let i = 1; i <= totalPages; i++) {
+    buttonsHTML += `
+      <li class="page-item ${
+        i === currentPage + 1 ? "disabled" : ""
+      }"><a class="page-link" href="#">${i}</a></li>
+    `;
+  }
+
+  const html = `
+      <ul class="pagination justify-content-center">
+        <li class="page-item ${currentPage === 0 ? "disabled" : ""}">
+          <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+        </li>
+        ${buttonsHTML}
+        <li class="page-item ${
+          currentPage + 1 == totalPages ? "disabled" : ""
+        }">
+          <a class="page-link" href="#">Next</a>
+        </li>
+      </ul>
+  `;
+
+  $("#pagination").html(html).removeClass("hidden");
+}
 
 function getStrains(query) {
   fetch(searchURL + apiKey + "/strains/search/race/" + query)
@@ -31,6 +61,10 @@ function getStrains(query) {
       });
 
       $("#strain-cards").html(html);
+      renderPagination({
+        totalPages: Math.ceil(strains.length / itemsPerPage),
+        currentPage: 0,
+      });
 
       strains.forEach((strain) => {
         fetch(searchURL + apiKey + "/strains/data/desc/" + strain.id)
