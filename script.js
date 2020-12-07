@@ -134,21 +134,6 @@ function getStrains(query) {
         itemsPerPage: 60,
         strains,
       });
-
-      // Shows the descriptions for each strain.
-      /* strains.forEach((strain) => {
-        fetch(searchURL + apiKey + "/strains/data/desc/" + strain.id)
-          .then((response) => response.json())
-          .then((json) => {
-            const $card = $(`.card[data-strain-id=${strain.id}]`); */
-      // If a Strain does not have a description, remove the strain.
-      /* if (!json.desc) {
-              return $card.parent().remove();
-            }
-
-            $(".strain-desc", $card).html(json.desc).show();
-          });
-      }); */
     });
 
   $("#results").removeClass("hidden");
